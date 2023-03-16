@@ -13,7 +13,10 @@ class NotesAppViewBody extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: const [
-            CustomAppBar(),
+            CustomAppBar(
+              icon: Icon(Icons.delete),
+              text: 'Notes',
+            ),
             Expanded(
               child: NotesListView(),
             ),
