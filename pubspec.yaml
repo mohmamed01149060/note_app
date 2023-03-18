@@ -29,6 +29,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_bloc: ^8.1.2
+  bloc: ^8.1.1
+  modal_progress_hud_nsn: ^0.3.0
   hive_flutter: ^1.1.0
   hive: ^2.2.3
   font_awesome_flutter: ^10.4.0

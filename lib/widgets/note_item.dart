@@ -16,7 +16,7 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           bottom: 20,
           top: 20,
           left: 16,
