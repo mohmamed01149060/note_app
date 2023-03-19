@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/widgets/custom_app_bar.dart';
-import 'package:note_app/widgets/note_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:note_app/constants.dart';
+import 'package:note_app/cubits/notes/notes_cubit.dart';
 import 'package:note_app/widgets/notes_list_view.dart';
 
-class NotesAppViewBody extends StatelessWidget {
+import 'custom_app_bar.dart';
+
+class NotesAppViewBody extends StatefulWidget {
   const NotesAppViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<NotesAppViewBody> createState() => _NotesAppViewBodyState();
+}
+
+class _NotesAppViewBodyState extends State<NotesAppViewBody> {
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +29,7 @@ class NotesAppViewBody extends StatelessWidget {
         child: Column(
           children: const [
             CustomAppBar(
-              icon: Icon(Icons.delete),
+              icon: Icon(Icons.search),
               text: 'Notes',
             ),
             Expanded(

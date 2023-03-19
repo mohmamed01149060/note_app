@@ -13,7 +13,6 @@ class NotesViews extends StatelessWidget {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         body: const NotesAppViewBody(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
