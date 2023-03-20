@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_app/cubits/notes/notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
@@ -13,7 +15,9 @@ class NoteItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
-            return const EditNoteView();
+            return EditNoteView(
+              note: note,
+            );
           }),
         );
       },
@@ -33,6 +37,7 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Text(
                 note.title,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 30,
@@ -41,6 +46,8 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
+                  overflow: TextOverflow.ellipsis,
+
                   note.subTitle,
                   // overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -57,6 +64,7 @@ class NoteItem extends StatelessWidget {
                 ),
                 onPressed: () {
                   note.delete();
+                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                 },
               ),
             ),
