@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:meta/meta.dart';
 import 'package:note_app/constants.dart';
 import 'package:note_app/models/note_model.dart';
 
